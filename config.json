@@ -1,0 +1,11 @@
+{
+  "databasehost": "localhost",
+  "databaseuser": "root",
+  "databasepassword": "password",
+  "databasedatabase": "crutechsurveydb",
+  "databasetablename": "surveydata",
+
+  "sessionsecret": "S@#$#^&$e$$i@n",
+  "applicationlistenport": "8080",
+  "debugmode": "true"
+}

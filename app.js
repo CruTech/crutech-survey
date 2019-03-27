@@ -71,8 +71,9 @@ app.post('/', urlencodedParser, function (req, res) {
     });
 });
 
-app.post('/survey', urlencodedParser, function (req, res) {
+app.post('/processsurvey', urlencodedParser, function (req, res) {
   console.log(req.body);
+  res.render('complete');
 });
 
 //

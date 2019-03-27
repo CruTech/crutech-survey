@@ -3,7 +3,7 @@
 <% objdata.forEach(function (data) { %>
   <h3>Welcome <%= data.firstname %> <%= data.lastname %></h3>
 
-  <form class="" action="/survey" method="post">
+  <form class="" action="/processsurvey" method="post">
 
     <h2>Getting Started</h2>
     <input type="hidden" name="id" value="<%= data.id %>"/>
@@ -314,7 +314,7 @@
       <label for="notetoleaderordirector">Note to a leader or a director</label>
       <textarea name="notetoleaderordirector" rows="8" cols="80"></textarea>
 
-      
+
 
       <input type="submit" name="" value="Complete Survey">
   </form>

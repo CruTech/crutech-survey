@@ -1,3 +1,10 @@
 html {
-  
+  font-family: Tahoma;
+  background-color: #a5f6ff;
+}
+
+.wrapper {
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
 }

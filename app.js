@@ -13,6 +13,7 @@ const mysql = require('mysql');
 //
 const app = express();
 const config = require('./config.json');
+const package = require('./package.json');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 var obj = {};
 var session;
@@ -39,7 +40,7 @@ connection.connect(function(err) {
     console.error(chalk.red('[ERROR] ') + chalk.blue('[DB] ') +  'There was an error connecting:\n' + err.stack);
     return;
   }
-  console.log(chalk.yellow('[CONSOLE] ' ) + chalk.blue('[DB] ') + 'Database connection is successful. Your connection ID is ' + connection.threadId + '.');
+  console.log(chalk.yellow('[CONSOLE] ' ) + chalk.blue('[DB] ') + 'Database connection is successful. Your connection ID is ' + connection.threadId + '.\n');
 });
 
 // Landing Page
@@ -80,4 +81,5 @@ app.post('/processsurvey', urlencodedParser, function (req, res) {
 // Application Boot
 //
 app.listen(config.applicationlistenport);
+console.log(chalk.yellow(`\n// CruTech Survey v.${package.version}\n`) + chalk.cyan(`GitHub Repository: ${package.homepage}\nCreated By: ${package.author}`));
 console.log(chalk.yellow('[CONSOLE] ' ) + 'Application is listening to the port ' + config.applicationlistenport);

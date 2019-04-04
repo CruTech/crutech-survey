@@ -48,9 +48,40 @@ app.get('/', function (req, res) {
   res.render('landing');
 });
 
-app.post('/processsurvey', urlencodedParser, function (req, res) {
+app.get('/getting-started', function (req, res) {
+  res.render('getting-started');
+});
+
+app.post('/getting-started', urlencodedParser, function (req, res) {
   console.log(req.body);
-  res.render('/complete');
+  res.redirect('/camp-aspect');
+
+  // let sql = `INSERT INTO ${config.databasetable} (name, link, description, image, category) VALUES ('${req.body.name}', '${req.body.link}', '${req.body.description}', '${req.body.Image}', '${req.body.category}')`;
+  //   connection.query (sql, function (err, result) {
+  //     if (err) {
+  //       throw err;
+  //     } else {
+  //       console.log(req.body);
+  //     }
+  //   });
+});
+
+app.get('/camp-aspect', function (req, res) {
+  res.render('camp-aspect');
+});
+
+app.post('/camp-aspect', urlencodedParser, function (req, res) {
+  console.log(req.body);
+  res.redirect('/camp-experience');
+
+  // let sql = `INSERT INTO ${config.databasetable} (name, link, description, image, category) VALUES ('${req.body.name}', '${req.body.link}', '${req.body.description}', '${req.body.Image}', '${req.body.category}')`;
+  //   connection.query (sql, function (err, result) {
+  //     if (err) {
+  //       throw err;
+  //     } else {
+  //       console.log(req.body);
+  //     }
+  //   });
 });
 
 //

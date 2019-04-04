@@ -1,0 +1,148 @@
+<% include partials/survey-header.ejs %>
+<form class="surveyformclass" action="/camp-aspect" method="post">
+  <h1>Camp Aspect</h1>
+    <h3>Camp Overall</h3>
+      <p>Camp Overall</p>
+      <select name="campoverallrating" required>
+        <% include partials/form-sections/rating.ejs %>
+      </select>
+
+      <p>What were your favourite things about camp?</p>
+      <textarea name="campfavouritething" rows="8" cols="80"></textarea>
+
+      <p>How could CruTech be better?</p>
+      <textarea name="campbebetter" rows="8" cols="80"></textarea>
+
+      <h3>Leaders</h3>
+        <p>Leaders</p>
+        <select name="leadersrating" required>
+          <% include partials/form-sections/rating.ejs %>
+        </select>
+
+        <p>Do you have any comments?</p>
+        <textarea name="leadersratingcomments" rows="8" cols="80"></textarea>
+
+      <h3>Electives</h3>
+        <p>What elective were you in?</p>
+        <input type="text" name="electivename" value="">
+
+        <p>Electives</p>
+        <select name="electivesrating" required>
+          <% include partials/form-sections/rating.ejs %>
+        </select>
+
+        <p>Do you have any comments?</p>
+        <textarea name="electiveratingcomments" rows="8" cols="80"></textarea>
+
+      <h3>Night Activities</h3>
+          <p>Which One Shot electives did you attend?</p>
+          <input type="text" name="oneshotname" value="">
+
+          <p>One Shots</p>
+          <select name="oneshotrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="oneshotcomments" rows="8" cols="80"></textarea>
+
+          <p>Theme Night</p>
+          <select name="themenightrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="themenightcomments" rows="8" cols="80"></textarea>
+
+          <p>Show Night</p>
+          <select name="shownightrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="shownightcomments" rows="8" cols="80"></textarea>
+
+      <h3>Game Strategy</h3>
+          <p>Game Strategy</p>
+          <select name="gamestratrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="gamestratcomments" rows="8" cols="80"></textarea>
+
+      <h3>Outdoor Games</h3>
+          <p>Outdoor Games</p>
+          <select name="outdoorgamesrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="outdoorgamescomments" rows="8" cols="80"></textarea>
+
+      <h3>Discussion Groups</h3>
+          <p>Outdoor Games</p>
+          <select name="discussiongrouprating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="discussiongroupcomments" rows="8" cols="80"></textarea>
+
+      <h3>Download [Christian Session]</h3>
+          <p>Download overall</p>
+          <select name="downloadoverallrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="downloadoverallcomments" rows="8" cols="80"></textarea>
+
+          <p>Speaker (Christian Talks during Download)</p>
+          <select name="downloadspeakerrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments or questions on the talks?</p>
+          <textarea name="downloadspeakercomments" rows="8" cols="80"></textarea>
+
+          <p>Singing (during Download)</p>
+          <select name="downloadsingingrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="downloadsingingcomments" rows="8" cols="80"></textarea>
+
+      <h3>Cabin Dorms</h3>
+          <p>Cabin Dorms</p>
+          <select name="cabinsrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="cabinscomments" rows="8" cols="80"></textarea>
+
+      <h3>Food</h3>
+          <p>Food</p>
+          <select name="foodrating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="foodcomments" rows="8" cols="80"></textarea>
+
+      <h3>Free Time</h3>
+          <p>Free Time</p>
+          <select name="freetimerating" required>
+            <% include partials/form-sections/rating.ejs %>
+          </select>
+
+          <p>Do you have any comments?</p>
+          <textarea name="freetimecomments" rows="8" cols="80"></textarea>
+
+    <div class="parent">
+      <button class="btn-primary assign" type="submit" name="">Continue to Camp Experience Feedback</button>
+    </div>
+</form>
+<% include partials/footer.ejs %>

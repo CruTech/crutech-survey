@@ -1,0 +1,38 @@
+<% include partials/survey-header.ejs %>
+<form class="surveyformclass" action="/getting-started" method="post">
+  <h1>Getting Started</h1>
+    <p>What is your name?</p>
+      <input type="text" name="name" value="">
+
+    <p>What is your favourite colour?</p>
+      <input type="text" name="favcolour" value="">
+
+    <p>What is the name of your school?</p>
+      <input type="text" name="school" value="">
+
+    <p>What grade are you in at school this year?</p>
+      <select name="schoolgrade" required>
+        <% include partials/form-sections/schoolyear.ejs %>
+      </select>
+
+    <p>Who lead your discussion group?</p>
+      <input type="text" name="discussiongroup" value="" required>
+
+    <p>What email address may we use to contact you?</p>
+      <input type="text" name="emailaddress" value="">
+
+    <p>Do you give permission for CruTech to contact you about reunions and future camps?</p>
+      <select name="reunionpermission" required>
+        <% include partials/form-sections/yesno.ejs %>
+      </select>
+
+    <p>Do you give permission for your comments to be used in CRU Camps promotion and reporting materials?</p>
+      <select name="crupromotionpermission" required>
+        <% include partials/form-sections/yesno.ejs %>
+      </select>
+
+    <div class="parent">
+      <button class="btn-primary assign" type="submit" name="">Continue to Camp Aspect Feedback and Comments</button>
+    </div>
+</form>
+<% include partials/footer.ejs %>

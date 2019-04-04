@@ -1,5 +1,10 @@
 create database crutechsurveydb;
 use crutechsurveydb;
+CREATE USER crutech@'%' IDENTIFIED BY 'password';
+GRANT SELECT ON crutechsurveydb.* TO crutech@'%';
+GRANT INSERT ON crutechsurveydb.* TO crutech@'%';
+GRANT UPDATE ON crutechsurveydb.* TO crutech@'%';
+
 CREATE TABLE surveydata (
   id int(50) not null auto_increment primary key,
   name TEXT,

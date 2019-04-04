@@ -3,9 +3,8 @@
   "databaseuser": "root",
   "databasepassword": "password",
   "databasedatabase": "crutechsurveydb",
-  "databasetablename": "surveydata",
+  "databasetable": "surveydata",
 
   "sessionsecret": "S@#$#^&$e$$i@n",
-  "applicationlistenport": "8080",
-  "debugmode": "true"
+  "applicationlistenport": "8080"
 }

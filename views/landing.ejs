@@ -1,16 +1,9 @@
 <% include partials/header.ejs %>
-
-  <h1>Welcome to the CruTech Survey Server</h1>
-  <p>Start the Survey</p>
-
-  <form class="" action="/" method="post">
-    <p>To start, what is your name?</p>
-      <label for="firstname">First Name:</label> <br>
-        <input type="text" name="firstname" value=""> <br>
-      <label for="lastname">Last Name:</label> <br>
-        <input type="text" name="lastname" value=""> <br>
-
-      <button class="btn-primary" type="submit">Start Survey</button>
-  </form>
-
+<div id="particle-div">
+  <div class="landing">
+    <img src="assets/img/crutech-smalllogo.png" alt="CruTech Logo">
+    <h1>Welcome to the CruTech Survey!</h1>
+    <a href="/start"><button class="btn-primary">Start Survey</button></a>
+  </div>
+</div>
 <% include partials/footer.ejs %>

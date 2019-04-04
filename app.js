@@ -48,33 +48,9 @@ app.get('/', function (req, res) {
   res.render('landing');
 });
 
-//
-app.post('/', urlencodedParser, function (req, res) {
-  console.log(req.body);
-
-  let sql = `INSERT INTO ${config.databasetablename} (firstname, lastname) VALUES ('${req.body.firstname}', '${req.body.lastname}');`;
-    connection.query (sql, function (err, result) {
-      if (err) {
-        throw err;
-      } else {
-        console.log(chalk.blue('[DB] ') + `The following record has been inserted into the database successfully.`);
-
-        let sql = `SELECT * FROM surveydata WHERE id=${result.insertId}`;
-        connection.query (sql, function (err, result) {
-          if (err) {
-            throw err;
-          } else {
-            obj = {objdata: result};
-            res.render('survey', obj);
-          };
-        });
-      };
-    });
-});
-
 app.post('/processsurvey', urlencodedParser, function (req, res) {
   console.log(req.body);
-  res.render('complete');
+  res.render('/complete');
 });
 
 //

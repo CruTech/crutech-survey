@@ -1,10 +1,18 @@
 html {
   font-family: Tahoma;
-  background-color: #a5f6ff;
+  background-color: #18acb6;
+  overflow: hidden;
 }
 
-.wrapper {
-  margin: 0 auto;
+.landing {
   background-color: white;
+  max-width: 600px;
+  max-height: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
   padding: 20px;
 }

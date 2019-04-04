@@ -1,6 +1,8 @@
 create database crutechsurveydb;
 use crutechsurveydb;
-CREATE USER crutech@'%' IDENTIFIED BY 'password';
+CREATE USER 'crutech'@'%' IDENTIFIED BY 'password';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
 GRANT SELECT ON crutechsurveydb.* TO crutech@'%';
 GRANT INSERT ON crutechsurveydb.* TO crutech@'%';
 GRANT UPDATE ON crutechsurveydb.* TO crutech@'%';

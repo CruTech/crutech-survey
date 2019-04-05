@@ -1,12 +1,8 @@
-.surveyformdiv {
-
-}
-
 .surveyformclass {
   background-color: white;
   padding: 15px;
   margin: 0 auto;
-  max-width: 1500px;
+  max-width: 1000px;
   border-radius: 2px;
 }
 

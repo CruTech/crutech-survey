@@ -84,6 +84,24 @@ app.post('/camp-aspect', urlencodedParser, function (req, res) {
   //   });
 });
 
+app.get('/camp-experience', function (req, res) {
+  res.render('camp-experience');
+});
+
+app.post('/camp-experience', urlencodedParser, function (req, res) {
+  console.log(req.body);
+  res.redirect('/faith-and-commitment');
+
+  // let sql = `INSERT INTO ${config.databasetable} (name, link, description, image, category) VALUES ('${req.body.name}', '${req.body.link}', '${req.body.description}', '${req.body.Image}', '${req.body.category}')`;
+  //   connection.query (sql, function (err, result) {
+  //     if (err) {
+  //       throw err;
+  //     } else {
+  //       console.log(req.body);
+  //     }
+  //   });
+});
+
 //
 // Application Boot
 //

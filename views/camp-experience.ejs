@@ -1,0 +1,62 @@
+<% include partials/survey-header.ejs %>
+<form class="surveyformclass" action="/camp-aspect" method="post">
+  <h1>Camp Experience Feedback</h1>
+    <p>Is this your first CruTech?</p>
+    <select name="firstcrutech" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>Would you like to go on another CruTech?</p>
+    <select name="anothercrutech" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>How would you sum up CruTech in one sentence?</p>
+    <input type="text" name="sumcrutechinasentence" value="">
+
+    <p>What are some new ideas that could make camp better?</p>
+    <textarea name="newcampideas" rows="8" cols="80"></textarea>
+
+    <p>Is this your first CruCamp?</p>
+    <select name="firstcrucamp" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>Would you like to go on another CRU camp?</p>
+    <select name="anothercrucamp" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>Would you recommend CRU camps to your friends?</p>
+    <select name="recommendcrucamp" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>Did you make new friends on camp this week?</p>
+    <select name="newfriendsoncamp" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>Did you feel welcome and cared for?</p>
+    <select name="feelwelcomeandcared" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>Do you have any comments about feeling welcome and/or cared for?</p>
+    <textarea name="feelwelcomeandcaredcomments" rows="8" cols="80"></textarea>
+
+    <p>Why did you come on Camp?</p>
+    <select name="whycomeoncamp" required>
+      <% include partials/form-sections/whycomeoncamp.ejs %>
+    </select>
+
+    <p>Why don't you come on more CRU camps?</p>
+    <select name="whynotcomeonmorecamps" required>
+      <% include partials/form-sections/whynotmorecamps.ejs %>
+    </select>
+
+    <div class="parent">
+      <button class="btn-primary assign" type="submit" name="">Continue to Faith and Commitment</button>
+    </div>
+</form>
+<% include partials/footer.ejs %>

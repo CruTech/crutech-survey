@@ -1,0 +1,45 @@
+<% include partials/header.ejs %>
+<form class="surveyformclass" action="/faith-and-commitment" method="post">
+  <h1>Faith and Commitment</h1>
+    <p>Do you attend a Christian group or CRU Group at school?</p>
+    <select name="attendschoolgroup" required>
+      <% include partials/form-sections/commitmentselect.ejs %>
+    </select>
+
+    <p>Do you attend Church and/or Youth Group?</p>
+    <select name="attendchurchgroup" required>
+      <% include partials/form-sections/commitmentselect.ejs %>
+    </select>
+
+    <p>Which best describes you?</p>
+    <select name="bestdescribesyou" required>
+      <% include partials/form-sections/describecommitment.ejs %>
+    </select>
+
+    <p>Please give me more info about:</p>
+    <% include partials/form-sections/moreinformation.ejs %>
+
+    <p>Has camp helped you grow in your faith?</p>
+    <select name="growninfaith" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>If you answered Yes, how?</p>
+    <textarea name="growninfaithhow" rows="8" cols="80"></textarea>
+
+    <p>Has camp helped you understand more about the Christian faith?</p>
+    <select name="helpunderstandfaith" required>
+      <% include partials/form-sections/yesno.ejs %>
+    </select>
+
+    <p>If you answered Yes, how?</p>
+    <textarea name="helpunderstandfaithhow" rows="8" cols="80"></textarea>
+
+    <p>How did camp help you come to this decision?</p>
+    <textarea name="camphelpdecision" rows="8" cols="80"></textarea>
+
+    <div class="parent">
+      <button class="btn-warning assign" type="submit" name="">Submit Survey</button>
+    </div>
+</form>
+<% include partials/footer.ejs %>

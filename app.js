@@ -102,6 +102,28 @@ app.post('/camp-experience', urlencodedParser, function (req, res) {
   //   });
 });
 
+app.get('/faith-and-commitment', function (req, res) {
+  res.render('faith-and-commitment');
+});
+
+app.post('/faith-and-commitment', urlencodedParser, function (req, res) {
+  console.log(req.body);
+  res.redirect('/submit');
+
+  // let sql = `INSERT INTO ${config.databasetable} (name, link, description, image, category) VALUES ('${req.body.name}', '${req.body.link}', '${req.body.description}', '${req.body.Image}', '${req.body.category}')`;
+  //   connection.query (sql, function (err, result) {
+  //     if (err) {
+  //       throw err;
+  //     } else {
+  //       console.log(req.body);
+  //     }
+  //   });
+});
+
+app.get('/submit', function (req, res) {
+  res.render('submit');
+});
+
 //
 // Application Boot
 //

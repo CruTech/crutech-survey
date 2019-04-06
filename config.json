@@ -2,7 +2,7 @@
   "databasehost": "localhost",
   "databaseuser": "root",
   "databasepassword": "password",
-  "databasedatabase": "crutechsurveydb",
+  "databasedatabase": "crutechsurvey",
   "databasetable": "surveydata",
 
   "sessionsecret": "S@#$#^&$e$$i@n",

@@ -1,11 +1,11 @@
-create database crutechsurveydb;
-use crutechsurveydb;
+create database crutechsurvey;
+use crutechsurvey;
 CREATE USER 'crutech'@'%' IDENTIFIED BY 'password';
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 FLUSH PRIVILEGES;
-GRANT SELECT ON crutechsurveydb.* TO crutech@'%';
-GRANT INSERT ON crutechsurveydb.* TO crutech@'%';
-GRANT UPDATE ON crutechsurveydb.* TO crutech@'%';
+GRANT SELECT ON crutechsurvey.* TO crutech@'%';
+GRANT INSERT ON crutechsurvey.* TO crutech@'%';
+GRANT UPDATE ON crutechsurvey.* TO crutech@'%';
 
 CREATE TABLE surveydata (
   id int(50) not null auto_increment primary key,

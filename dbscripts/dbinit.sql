@@ -16,7 +16,7 @@ CREATE TABLE surveydata (
   discussiongroup TEXT,
   emailaddress TEXT,
   reunionpermission VARCHAR(20),
-  crupromotionpermisison VARCHAR(20),
+  crupromotionpermission VARCHAR(20),
   campoverallrating VARCHAR(20),
   campfavouritething TEXT,
   campbebetter TEXT,

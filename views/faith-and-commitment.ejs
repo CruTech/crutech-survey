@@ -19,21 +19,26 @@
     <p>Please give me more info about:</p>
     <% include partials/form-sections/moreinformation.ejs %>
 
+    <script src="assets/js/hiddencommentsdiv.js" charset="utf-8"></script>
     <p>Has camp helped you grow in your faith?</p>
-    <select name="growninfaith" required>
+    <select name="growninfaith" onchange="showDiv('growninfaithhowcomments', this)" required>
       <% include partials/form-sections/yesno.ejs %>
     </select>
 
-    <p>If you answered Yes, how?</p>
-    <textarea name="growninfaithhow" rows="8" cols="80"></textarea>
+    <div id="growninfaithhowcomments">
+      <p>How has camp helped you grow in your faith?</p>
+      <textarea name="growninfaithhow" rows="8" cols="80"></textarea>
+    </div>
 
     <p>Has camp helped you understand more about the Christian faith?</p>
-    <select name="helpunderstandfaith" required>
+    <select name="helpunderstandfaith" onchange="showDiv('helpunderstandfaithcomments', this)" required>
       <% include partials/form-sections/yesno.ejs %>
     </select>
 
-    <p>If you answered Yes, how?</p>
-    <textarea name="helpunderstandfaithhow" rows="8" cols="80"></textarea>
+    <div id="helpunderstandfaithcomments">
+      <p>How has camp helped you understand more about the Christian faith?</p>
+      <textarea name="helpunderstandfaithhow" rows="8" cols="80"></textarea>
+    </div>
 
     <p>How did camp help you come to this decision?</p>
     <textarea name="camphelpdecision" rows="8" cols="80"></textarea>

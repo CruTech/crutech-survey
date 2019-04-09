@@ -24,6 +24,9 @@ app.set('views', 'views');
 app.use(express.static('public'));
 app.use(cookieParser());
 
+//
+// Database Connection
+//
 const connection = mysql.createConnection({
   host: config.databasehost,
   user: config.databaseuser,
@@ -31,7 +34,7 @@ const connection = mysql.createConnection({
   database: config.databasedatabase
 });
 
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
     console.error(chalk.red('[ERROR] ') + chalk.blue('[DB] ') +  'There was an error connecting:\n' + err.stack);
     return;
@@ -40,57 +43,67 @@ connection.connect(function(err) {
   };
 });
 
+//
 // Landing Page
+//
 app.get('/', function (req, res) {
   res.render('landing');
 });
 
 app.post('/', urlencodedParser, function (req, res) {
-  if (req.cookies.token == undefined) {
-    console.log('Could not find a token in the clients cookies, creating a cookie token.');
+  let cookie = req.cookies['token'];
+  let gentoken = randtoken.generate(16);
 
-    var token = randtoken.generate(16);
-    console.log(`A survey token has been generated [${token}]`);
-    res.cookie('token', token);
+  res.cookie('token', `${gentoken}`, {
+    maxAge: 7200000, // 2 hours
+    httpOnly: true // http only, prevents JavaScript cookie access
+  });
 
-    let sql = `INSERT INTO ${config.databasetable} (token) VALUES ('${req.cookie.token}')`;
-      connection.query (sql, function (err, result) {
-        if (err) {
-          throw err;
-        } else {
-          console.log(req.body);
-          res.redirect('/getting-started');
-        }
-      });
-  } else {
-    // Remove clients old cookie if there is one
-    console.log('A cookie token has been found on the clients machine, removing cookie.');
-    res.cookie('token', 'value', {maxAge: 3});
-
-    // Generate new token
-    var token = randtoken.generate(16);
-    console.log(token);
-    res.cookie('token', token);
-    res.redirect('/getting-started');
-  };
+  // Insert token into the database
+  let sql = `INSERT INTO ${config.databasetable} (tokenid) VALUES ('${cookie}');`;
+  connection.query (sql, function (err, result) {
+    if (err) {
+      throw err;
+      } else {
+        console.log(req.body);
+        res.redirect('/getting-started');
+        console.log('Success');
+      }
+    });
 });
 
+//
+// Getting Started
+//
 app.get('/getting-started', function (req, res) {
   res.render('getting-started');
 });
 
 app.post('/getting-started', urlencodedParser, function (req, res) {
-  let sql = `INSERT INTO ${config.databasetable} (name, favcolour, school, schoolgrade, discussiongroup, emailaddress, reunionpermission, crupromotionpermission) VALUES ('${req.body.name}', '${req.body.favcolour}', '${req.body.school}', '${req.body.schoolgrade}', '${req.body.discussiongroup}', '${req.body.emailaddress}', '${req.body.reunionpermission}', '${req.body.crupromotionpermission}' WHERE token='${req.cookies.token}';)`;
-    connection.query (sql, function (err, result) {
-      if (err) {
-        throw err;
-      } else {
-        console.log(req.body);
-        res.redirect('/camp-aspect');
-      }
-    });
+  let sql = `UPDATE ${config.databasetable} SET
+  name='${req.body.name}',
+  favcolour='${req.body.favcolour}',
+  school='${req.body.school}',
+  schoolgrade='${req.body.schoolgrade}',
+  discussiongroup='${req.body.discussiongroup}',
+  emailaddress='${req.body.emailaddress}',
+  reunionpermission='${req.body.reunionpermission}',
+  crupromotionpermission='${req.body.crupromotionpermission}'
+  WHERE tokenid='${req.cookies['token']}';`;
+
+  connection.query (sql, function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(req.body);
+      res.redirect('/camp-aspect');
+    }
+  });
 });
 
+//
+// Camp Aspect
+//
 app.get('/camp-aspect', function (req, res) {
   res.render('camp-aspect');
 });
@@ -107,6 +120,9 @@ let sql = `INSERT INTO ${config.databasetable} (campoverallrating,campfavouritet
   });
 });
 
+//
+// Camp Experience
+//
 app.get('/camp-experience', function (req, res) {
   res.render('camp-experience');
 });
@@ -123,6 +139,10 @@ app.post('/camp-experience', urlencodedParser, function (req, res) {
   });
 });
 
+
+//
+// Faith and Commitment
+//
 app.get('/faith-and-commitment', function (req, res) {
   res.render('faith-and-commitment');
 });
@@ -139,6 +159,9 @@ app.post('/faith-and-commitment', urlencodedParser, function (req, res) {
   });
 });
 
+//
+// Survey Submission
+//
 app.get('/submit', function (req, res) {
   res.render('submit');
 });

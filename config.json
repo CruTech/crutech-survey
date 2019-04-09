@@ -4,7 +4,5 @@
   "databasepassword": "password",
   "databasedatabase": "crutechsurvey",
   "databasetable": "surveydata",
-
-  "sessionsecret": "S@#$#^&$e$$i@n",
   "applicationlistenport": "8080"
 }

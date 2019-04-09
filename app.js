@@ -80,16 +80,7 @@ app.get('/getting-started', function (req, res) {
 });
 
 app.post('/getting-started', urlencodedParser, function (req, res) {
-  let sql = `UPDATE ${config.databasetable} SET
-  name='${req.body.name}',
-  favcolour='${req.body.favcolour}',
-  school='${req.body.school}',
-  schoolgrade='${req.body.schoolgrade}',
-  discussiongroup='${req.body.discussiongroup}',
-  emailaddress='${req.body.emailaddress}',
-  reunionpermission='${req.body.reunionpermission}',
-  crupromotionpermission='${req.body.crupromotionpermission}'
-  WHERE tokenid='${req.cookies['token']}';`;
+  let sql = `UPDATE ${config.databasetable} SET name='${req.body.name}', favcolour='${req.body.favcolour}', school='${req.body.school}', schoolgrade='${req.body.schoolgrade}', discussiongroup='${req.body.discussiongroup}', emailaddress='${req.body.emailaddress}', reunionpermission='${req.body.reunionpermission}', crupromotionpermission='${req.body.crupromotionpermission}' WHERE tokenid='${req.cookies['token']}';`;
 
   connection.query (sql, function (err, result) {
     if (err) {

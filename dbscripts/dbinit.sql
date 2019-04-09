@@ -8,8 +8,7 @@ GRANT INSERT ON crutechsurvey.* TO crutech@'%';
 GRANT UPDATE ON crutechsurvey.* TO crutech@'%';
 
 CREATE TABLE surveydata (
-  id int(50) not null auto_increment primary key,
-  token VARCHAR(16),
+  tokenid VARCHAR(16) not null primary key,
   name TEXT,
   favcolour TEXT,
   school TEXT,

@@ -1,4 +1,4 @@
-<% include partials/survey-header.ejs %>
+<% include partials/header.ejs %>
 <form class="surveyformclass" action="/camp-experience" method="post">
   <h1>Camp Experience Feedback</h1>
     <p>Is this your first CruTech?</p>
@@ -12,7 +12,7 @@
     </select>
 
     <p>How would you sum up CruTech in one sentence?</p>
-    <input type="text" name="sumcrutechinasentence" value="">
+    <input type="text" name="sumcrutechinasentence" value="" require>
 
     <p>What are some new ideas that could make camp better?</p>
     <textarea name="newcampideas" rows="8" cols="80"></textarea>

@@ -20,7 +20,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 var obj = {};
 var gentoken = randtoken.generate(16);
 
-
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(express.static('public'));
@@ -54,10 +53,9 @@ app.get('/', function (req, res) {
 
 app.post('/', urlencodedParser, function (req, res) {
   var tokencookie = req.cookies.token;
-  if (!tokencookie) {
-    console.log(gentoken);
-    res.cookie('token', gentoken);
-  }
+
+  console.log(gentoken);
+  res.cookie('token', gentoken);
 
   // Insert token into the database
   let sql = `INSERT INTO ${config.databasetable} (tokenid) VALUES ('${gentoken}');`;
@@ -82,15 +80,17 @@ app.get('/getting-started', function (req, res) {
 app.post('/getting-started', urlencodedParser, function (req, res) {
   var tokencookie = req.cookies.token;
   let sql = `UPDATE ${config.databasetable}
-    SET name='${req.body.name}',
-        favcolour='${req.body.favcolour}',
-        school='${req.body.school}',
-        schoolgrade='${req.body.schoolgrade}',
-        discussiongroup='${req.body.discussiongroup}',
-        emailaddress='${req.body.emailaddress}',
-        reunionpermission='${req.body.reunionpermission}',
-        crupromotionpermission='${req.body.crupromotionpermission}'
+    SET name=?,
+        favcolour=?,
+        school=?,
+        schoolgrade=?,
+        discussiongroup=?,
+        emailaddress=?,
+        reunionpermission=?,
+        crupromotionpermission=?
     WHERE tokenid='${tokencookie}';`;
+  let inserts = [`${req.body.name}`, `${req.body.favcolour}`, `${req.body.school}`, `${req.body.schoolgrade}`, `${req.body.discussiongroup}`, `${req.body.emailaddress}`, `${req.body.reunionpermission}`, `${req.body.crupromotionpermission}`];
+  sql = mysql.format(sql, inserts);
 
   connection.query (sql, function (err, result) {
     if (err) {
@@ -112,40 +112,42 @@ app.get('/camp-aspect', function (req, res) {
 app.post('/camp-aspect', urlencodedParser, function (req, res) {
   var tokencookie = req.cookies.token;
   let sql = `UPDATE ${config.databasetable}
-  SET campoverallrating= '${req.body.campoverallrating}',
-      campfavouritething='${req.body.campfavouritething}',
-      campbebetter='${req.body.campbebetter}',
-      leadersrating='${req.body.leadersrating}',
-      leadersratingcomments='${req.body.leadersratingcomments}',
-      electivename='${req.body.electivename}',
-      electivesrating='${req.body.electivesrating}',
-      electiveratingcomments='${req.body.electiveratingcomments}',
-      oneshotname='${req.body.oneshotname}',
-      oneshotrating='${req.body.oneshotrating}',
-      oneshotcomments='${req.body.oneshotcomments}',
-      themenightrating='${req.body.themenightrating}',
-      themenightcomments='${req.body.themenightcomments}',
-      shownightrating='${req.body.shownightrating}',
-      shownightcomments='${req.body.shownightcomments}',
-      gamestratrating='${req.body.gamestratrating}',
-      gamestratcomments='${req.body.gamestratcomments}',
-      outdoorgamesrating='${req.body.outdoorgamesrating}',
-      outdoorgamescomments='${req.body.outdoorgamescomments}',
-      discussiongrouprating='${req.body.discussiongrouprating}',
-      discussiongroupcomments='${req.body.discussiongroupcomments}',
-      downloadoverallrating='${req.body.downloadoverallrating}',
-      downloadoverallcomments='${req.body.downloadoverallcomments}',
-      downloadspeakerrating='${req.body.downloadspeakerrating}',
-      downloadspeakercomments='${req.body.downloadspeakercomments}',
-      downloadsingingrating='${req.body.downloadsingingrating}',
-      downloadsingingcomments='${req.body.downloadsingingcomments}',
-      cabinsrating='${req.body.cabinsrating}',
-      cabinscomments='${req.body.cabinscomments}',
-      foodrating='${req.body.foodrating}',
-      foodcomments=${req.body.foodcomments},
-      freetimerating='${req.body.freetimerating}',
-      freetimecomments='${req.body.freetimecomments}'
-    WHERE tokenid='${tokencookie}';`;
+    SET campoverallrating=?,
+        campfavouritething=?,
+        campbebetter=?,
+        leadersrating=?,
+        leadersratingcomments=?,
+        electivename=?,
+        electivesrating=?,
+        electiveratingcomments=?,
+        oneshotname=?,
+        oneshotrating=?,
+        oneshotcomments=?,
+        themenightrating=?,
+        themenightcomments=?,
+        shownightrating=?,
+        shownightcomments=?,
+        gamestratrating=?,
+        gamestratcomments=?,
+        outdoorgamesrating=?,
+        outdoorgamescomments=?,
+        discussiongrouprating=?,
+        discussiongroupcomments=?,
+        downloadoverallrating=?,
+        downloadoverallcomments=?,
+        downloadspeakerrating=?,
+        downloadspeakercomments=?,
+        downloadsingingrating=?,
+        downloadsingingcomments=?,
+        cabinsrating=?,
+        cabinscomments=?,
+        foodrating=?,
+        foodcomments=?,
+        freetimerating=?,
+        freetimecomments=?
+      WHERE tokenid='${tokencookie}';`;
+  let inserts = [`${req.body.campoverallrating}`, `${req.body.campfavouritething}`, `${req.body.campbebetter}`, `${req.body.leadersrating}`, `${req.body.leadersratingcomments}`, `${req.body.electivename}`, `${req.body.electivesrating}`, `${req.body.electiveratingcomments}`, `${req.body.oneshotname}`, `${req.body.oneshotrating}`, `${req.body.oneshotcomments}`, `${req.body.themenightrating}`, `${req.body.themenightcomments}`, `${req.body.shownightrating}`, `${req.body.shownightcomments}`, `${req.body.gamestratrating}`, `${req.body.gamestratcomments}`, `${req.body.outdoorgamesrating}`, `${req.body.outdoorgamescomments}`, `${req.body.discussiongrouprating}`, `${req.body.discussiongroupcomments}`, `${req.body.downloadoverallrating}`, `${req.body.downloadoverallcomments}`, `${req.body.downloadspeakerrating}`, `${req.body.downloadspeakercomments}`, `${req.body.downloadsingingrating}`, `${req.body.downloadsingingcomments}`, `${req.body.cabinsrating}`, `${req.body.cabinscomments}`, `${req.body.foodrating}`, `${req.body.foodcomments}`, `${req.body.freetimerating}`, `${req.body.freetimecomments}`];
+  sql = mysql.format(sql, inserts);
 
   connection.query (sql, function (err, result) {
     if (err) {
@@ -165,7 +167,24 @@ app.get('/camp-experience', function (req, res) {
 });
 
 app.post('/camp-experience', urlencodedParser, function (req, res) {
-  let sql = `INSERT INTO ${config.databasetable} (firstcrutech, anothercrutech, sumcrutechinasentence, newcampideas, firstcrucamp, anothercrucamp, recommendcrucamp, newfriendsoncamp, feelwelcomeandcared, feelwelcomeandcaredcomments, whycomeoncamp, whynotcomeonmorecamps) VALUES ('${req.body.firstcrutech}, ${req.body.anothercrutech}, ${req.body.sumcrutechinasentence}, ${req.body.newcampideas}, ${req.body.firstcrucamp}, ${req.body.anothercrucamp}, ${req.body.recommendcrucamp}, ${req.body.newfriendsoncamp}, ${req.body.feelwelcomeandcared}, ${req.body.feelwelcomeandcaredcomments}, ${req.body.whycomeoncamp}, ${req.body.whynotcomeonmorecamps}')`;
+  var tokencookie = req.cookies.token;
+  let sql = `UPDATE ${config.databasetable}
+    SET firstcrutech=?,
+        anothercrutech=?,
+        sumcrutechinasentence=?,
+        newcampideas=?,
+        firstcrucamp=?,
+        anothercrucamp=?,
+        recommendcrucamp=?,
+        newfriendsoncamp=?,
+        feelwelcomeandcared=?,
+        feelwelcomeandcaredcomments=?,
+        whycomeoncamp=?,
+        whynotcomeonmorecamps=?
+    WHERE tokenid='${tokencookie}';`;
+  let inserts = [`${req.body.firstcrutech}`, `${req.body.anothercrutech}`, `${req.body.sumcrutechinasentence}`, `${req.body.newcampideas}`, `${req.body.firstcrucamp}`, `${req.body.anothercrucamp}`, `${req.body.recommendcrucamp}`, `${req.body.newfriendsoncamp}`, `${req.body.feelwelcomeandcared}`, `${req.body.feelwelcomeandcaredcomments}`, `${req.body.whycomeoncamp}`, `${req.body.whynotcomeonmorecamps}`];
+  sql = mysql.format(sql, inserts);
+
     connection.query (sql, function (err, result) {
       if (err) {
         throw err;
@@ -184,13 +203,26 @@ app.get('/faith-and-commitment', function (req, res) {
 });
 
 app.post('/faith-and-commitment', urlencodedParser, function (req, res) {
-  let sql = `INSERT INTO ${config.databasetable} (attendschoolgroup, attendchurchgroup, bestdescribesyou, growninfaith, growninfaithhow, helpunderstandfaith, helpunderstandfaithhow, camphelpdecision) VALUES ('${req.body.attendschoolgroup}, ${req.body.attendchurchgroup}, ${req.body.bestdescribesyou}, ${req.body.growninfaith}, ${req.body.growninfaithhow}, ${req.body.helpunderstandfaith}, ${req.body.helpunderstandfaithhow}, ${req.body.camphelpdecision}')`;
+  var tokencookie = req.cookies.token;
+  let sql = `UPDATE ${config.databasetable}
+    SET attendschoolgroup=?,
+        attendchurchgroup=?,
+        bestdescribesyou=?,
+        growninfaith=?,
+        growninfaithhow=?,
+        helpunderstandfaith=?,
+        helpunderstandfaithhow=?,
+        camphelpdecision=?
+    WHERE tokenid='${tokencookie}';`;
+  let inserts = [`${req.body.attendschoolgroup}`, `${req.body.attendchurchgroup}`, `${req.body.bestdescribesyou}`, `${req.body.growninfaith}`, `${req.body.growninfaithhow}`, `${req.body.helpunderstandfaith}`, `${req.body.helpunderstandfaithhow}`, `${req.body.camphelpdecision}`];
+  sql = mysql.format(sql, inserts);
+
     connection.query (sql, function (err, result) {
       if (err) {
         throw err;
       } else {
         console.log(req.body);
-        res.clearCookie('token', { path: '/' });
+        res.clearCookie('token');
         res.redirect('/submit');
       }
   });

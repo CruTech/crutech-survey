@@ -89,7 +89,16 @@ app.post('/getting-started', urlencodedParser, function (req, res) {
         reunionpermission=?,
         crupromotionpermission=?
     WHERE tokenid='${tokencookie}';`;
-  let inserts = [`${req.body.name}`, `${req.body.favcolour}`, `${req.body.school}`, `${req.body.schoolgrade}`, `${req.body.discussiongroup}`, `${req.body.emailaddress}`, `${req.body.reunionpermission}`, `${req.body.crupromotionpermission}`];
+  let inserts = [
+    `${req.body.name}`,
+    `${req.body.favcolour}`,
+    `${req.body.school}`,
+    `${req.body.schoolgrade}`,
+    `${req.body.discussiongroup}`,
+    `${req.body.emailaddress}`,
+    `${req.body.reunionpermission}`,
+    `${req.body.crupromotionpermission}`
+  ];
   sql = mysql.format(sql, inserts);
 
   connection.query (sql, function (err, result) {
@@ -146,7 +155,41 @@ app.post('/camp-aspect', urlencodedParser, function (req, res) {
         freetimerating=?,
         freetimecomments=?
       WHERE tokenid='${tokencookie}';`;
-  let inserts = [`${req.body.campoverallrating}`, `${req.body.campfavouritething}`, `${req.body.campbebetter}`, `${req.body.leadersrating}`, `${req.body.leadersratingcomments}`, `${req.body.electivename}`, `${req.body.electivesrating}`, `${req.body.electiveratingcomments}`, `${req.body.oneshotname}`, `${req.body.oneshotrating}`, `${req.body.oneshotcomments}`, `${req.body.themenightrating}`, `${req.body.themenightcomments}`, `${req.body.shownightrating}`, `${req.body.shownightcomments}`, `${req.body.gamestratrating}`, `${req.body.gamestratcomments}`, `${req.body.outdoorgamesrating}`, `${req.body.outdoorgamescomments}`, `${req.body.discussiongrouprating}`, `${req.body.discussiongroupcomments}`, `${req.body.downloadoverallrating}`, `${req.body.downloadoverallcomments}`, `${req.body.downloadspeakerrating}`, `${req.body.downloadspeakercomments}`, `${req.body.downloadsingingrating}`, `${req.body.downloadsingingcomments}`, `${req.body.cabinsrating}`, `${req.body.cabinscomments}`, `${req.body.foodrating}`, `${req.body.foodcomments}`, `${req.body.freetimerating}`, `${req.body.freetimecomments}`];
+  let inserts = [
+    `${req.body.campoverallrating}`,
+    `${req.body.campfavouritething}`,
+    `${req.body.campbebetter}`,
+    `${req.body.leadersrating}`,
+    `${req.body.leadersratingcomments}`,
+    `${req.body.electivename}`,
+    `${req.body.electivesrating}`,
+    `${req.body.electiveratingcomments}`,
+    `${req.body.oneshotname}`,
+    `${req.body.oneshotrating}`,
+    `${req.body.oneshotcomments}`,
+    `${req.body.themenightrating}`,
+    `${req.body.themenightcomments}`,
+    `${req.body.shownightrating}`,
+    `${req.body.shownightcomments}`,
+    `${req.body.gamestratrating}`,
+    `${req.body.gamestratcomments}`,
+    `${req.body.outdoorgamesrating}`,
+    `${req.body.outdoorgamescomments}`,
+    `${req.body.discussiongrouprating}`,
+    `${req.body.discussiongroupcomments}`,
+    `${req.body.downloadoverallrating}`,
+    `${req.body.downloadoverallcomments}`,
+    `${req.body.downloadspeakerrating}`,
+    `${req.body.downloadspeakercomments}`,
+    `${req.body.downloadsingingrating}`,
+    `${req.body.downloadsingingcomments}`,
+    `${req.body.cabinsrating}`,
+    `${req.body.cabinscomments}`,
+    `${req.body.foodrating}`,
+    `${req.body.foodcomments}`,
+    `${req.body.freetimerating}`,
+    `${req.body.freetimecomments}`
+  ];
   sql = mysql.format(sql, inserts);
 
   connection.query (sql, function (err, result) {
@@ -182,7 +225,20 @@ app.post('/camp-experience', urlencodedParser, function (req, res) {
         whycomeoncamp=?,
         whynotcomeonmorecamps=?
     WHERE tokenid='${tokencookie}';`;
-  let inserts = [`${req.body.firstcrutech}`, `${req.body.anothercrutech}`, `${req.body.sumcrutechinasentence}`, `${req.body.newcampideas}`, `${req.body.firstcrucamp}`, `${req.body.anothercrucamp}`, `${req.body.recommendcrucamp}`, `${req.body.newfriendsoncamp}`, `${req.body.feelwelcomeandcared}`, `${req.body.feelwelcomeandcaredcomments}`, `${req.body.whycomeoncamp}`, `${req.body.whynotcomeonmorecamps}`];
+  let inserts = [
+    `${req.body.firstcrutech}`,
+    `${req.body.anothercrutech}`,
+    `${req.body.sumcrutechinasentence}`,
+    `${req.body.newcampideas}`,
+    `${req.body.firstcrucamp}`,
+    `${req.body.anothercrucamp}`,
+    `${req.body.recommendcrucamp}`,
+    `${req.body.newfriendsoncamp}`,
+    `${req.body.feelwelcomeandcared}`,
+    `${req.body.feelwelcomeandcaredcomments}`,
+    `${req.body.whycomeoncamp}`,
+    `${req.body.whynotcomeonmorecamps}`
+  ];
   sql = mysql.format(sql, inserts);
 
     connection.query (sql, function (err, result) {
@@ -214,7 +270,16 @@ app.post('/faith-and-commitment', urlencodedParser, function (req, res) {
         helpunderstandfaithhow=?,
         camphelpdecision=?
     WHERE tokenid='${tokencookie}';`;
-  let inserts = [`${req.body.attendschoolgroup}`, `${req.body.attendchurchgroup}`, `${req.body.bestdescribesyou}`, `${req.body.growninfaith}`, `${req.body.growninfaithhow}`, `${req.body.helpunderstandfaith}`, `${req.body.helpunderstandfaithhow}`, `${req.body.camphelpdecision}`];
+  let inserts = [
+    `${req.body.attendschoolgroup}`,
+    `${req.body.attendchurchgroup}`,
+    `${req.body.bestdescribesyou}`,
+    `${req.body.growninfaith}`,
+    `${req.body.growninfaithhow}`,
+    `${req.body.helpunderstandfaith}`,
+    `${req.body.helpunderstandfaithhow}`,
+    `${req.body.camphelpdecision}`
+  ];
   sql = mysql.format(sql, inserts);
 
     connection.query (sql, function (err, result) {

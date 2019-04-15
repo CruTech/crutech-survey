@@ -1,8 +1,12 @@
 //
 // Other Div Show
 //
-function showDiv(divId, element) {
+function showDivyesno(divId, element) {
   document.getElementById(divId).style.display = element.value == 'Yes' ? 'block' : 'none';
+};
+
+function showDivother(divId, element) {
+  document.getElementById(divId).style.display = element.value == 'Other' ? 'block' : 'none';
 };
 
 //

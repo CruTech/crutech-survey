@@ -1,59 +1,69 @@
 <% include partials/header.ejs %>
 <form class="surveyformclass" action="/camp-experience" method="post">
   <h1>Camp Experience Feedback</h1>
-    <p>Is this your first CruTech?</p>
+    <p class="question">Is this your first CruTech?</p>
     <select name="firstcrutech" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
-    <p>Would you like to go on another CruTech?</p>
+    <p class="question">Would you like to go on another CruTech?</p>
     <select name="anothercrutech" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
-    <p>How would you sum up CruTech in one sentence?</p>
-    <input type="text" name="sumcrutechinasentence" value="" require>
+    <p class="question">How would you sum up CruTech in one sentence?</p>
+    <input type="text" name="sumcrutechinasentence" value="" require><br>
 
     <p>What are some new ideas that could make camp better?</p>
-    <textarea name="newcampideas" rows="8" cols="80"></textarea>
+    <textarea name="newcampideas" rows="8" cols="80"></textarea><br>
 
-    <p>Is this your first CruCamp?</p>
+    <p class="question">Is this your first CruCamp?</p>
     <select name="firstcrucamp" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
-    <p>Would you like to go on another CRU camp?</p>
+    <p class="question">Would you like to go on another CRU camp?</p>
     <select name="anothercrucamp" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
-    <p>Would you recommend CRU camps to your friends?</p>
+    <p class="question">Would you recommend CRU camps to your friends?</p>
     <select name="recommendcrucamp" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
-    <p>Did you make new friends on camp this week?</p>
+    <p class="question">Did you make new friends on camp this week?</p>
     <select name="newfriendsoncamp" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
-    <p>Did you feel welcome and cared for?</p>
+    <p class="question">Did you feel welcome and cared for?</p>
     <select name="feelwelcomeandcared" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
     <p>Do you have any comments about feeling welcome and/or cared for?</p>
     <textarea name="feelwelcomeandcaredcomments" rows="8" cols="80"></textarea>
 
     <p>Why did you come on Camp?</p>
-    <select name="whycomeoncamp" required>
+    <select name="whycomeoncamp" onchange="showDivother('whycomeoncampother', this)" required>
       <% include partials/form-sections/whycomeoncamp.ejs %>
     </select>
 
+    <div id="whycomeoncampother">
+      <br>
+      <textarea name="whycomeoncampother" rows="8" cols="80"></textarea>
+    </div>
+
     <p>Why don't you come on more CRU camps?</p>
-    <select name="whynotcomeonmorecamps" required>
+    <select name="whynotcomeonmorecamps" onchange="showDivother('whynotcomeonmorecampsother', this)" required>
       <% include partials/form-sections/whynotmorecamps.ejs %>
     </select>
+
+    <div id="whynotcomeonmorecampsother">
+      <br>
+      <textarea name="whynotcomeonmorecampsother" rows="8" cols="80"></textarea>
+    </div>
 
     <div class="parent">
       <button class="btn-primary assign" type="submit" name="">Continue to Faith and Commitment</button>

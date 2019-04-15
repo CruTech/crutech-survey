@@ -25,6 +25,10 @@ html {
   border-radius: 5px;
 }
 
+.question {
+  display: inline-block;
+}
+
 input, select {
   padding: 5px;
 }
@@ -52,6 +56,6 @@ textarea {
   left: 0;
 }
 
-#growninfaithhowcomments, #helpunderstandfaithcomments {
+#growninfaithhowcomments, #helpunderstandfaithcomments, #whycomeoncampother, #whynotcomeonmorecampsother {
   display: none;
 }

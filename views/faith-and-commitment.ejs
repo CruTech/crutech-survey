@@ -1,39 +1,38 @@
 <% include partials/header.ejs %>
 <form class="surveyformclass" action="/faith-and-commitment" method="post">
   <h1>Faith and Commitment</h1>
-    <p>Do you attend a Christian group or CRU Group at school?</p>
+    <p class="question">Do you attend a Christian group or CRU Group at school?</p>
     <select name="attendschoolgroup" required>
       <% include partials/form-sections/commitmentselect.ejs %>
-    </select>
+    </select><br>
 
-    <p>Do you attend Church and/or Youth Group?</p>
+    <p class="question">Do you attend Church and/or Youth Group?</p>
     <select name="attendchurchgroup" required>
       <% include partials/form-sections/commitmentselect.ejs %>
-    </select>
+    </select><br>
 
-    <p>Which best describes you?</p>
+    <p class="question">Which best describes you?</p>
     <select name="bestdescribesyou" required>
       <% include partials/form-sections/describecommitment.ejs %>
-    </select>
+    </select><br>
 
     <p>Please give me more info about:</p>
     <% include partials/form-sections/moreinformation.ejs %>
 
-    <script src="assets/js/hiddencommentsdiv.js" charset="utf-8"></script>
-    <p>Has camp helped you grow in your faith?</p>
-    <select name="growninfaith" onchange="showDiv('growninfaithhowcomments', this)" required>
+    <p class="question">Has camp helped you grow in your faith?</p>
+    <select name="growninfaith" onchange="showDivyesno('growninfaithhowcomments', this)" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
     <div id="growninfaithhowcomments">
       <p>How has camp helped you grow in your faith?</p>
       <textarea name="growninfaithhow" rows="8" cols="80"></textarea>
     </div>
 
-    <p>Has camp helped you understand more about the Christian faith?</p>
-    <select name="helpunderstandfaith" onchange="showDiv('helpunderstandfaithcomments', this)" required>
+    <p class="question">Has camp helped you understand more about the Christian faith?</p>
+    <select name="helpunderstandfaith" onchange="showDivyesno('helpunderstandfaithcomments', this)" required>
       <% include partials/form-sections/yesno.ejs %>
-    </select>
+    </select><br>
 
     <div id="helpunderstandfaithcomments">
       <p>How has camp helped you understand more about the Christian faith?</p>

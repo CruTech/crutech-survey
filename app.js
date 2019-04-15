@@ -63,7 +63,6 @@ app.post('/', urlencodedParser, function (req, res) {
     if (err) {
       throw err;
       } else {
-        console.log(req.body);
         res.redirect('/getting-started');
         console.log('Success');
       }
@@ -206,6 +205,7 @@ app.post('/camp-aspect', urlencodedParser, function (req, res) {
 // Camp Experience
 //
 app.get('/camp-experience', function (req, res) {
+  cookieChecker();
   res.render('camp-experience');
 });
 
@@ -223,7 +223,9 @@ app.post('/camp-experience', urlencodedParser, function (req, res) {
         feelwelcomeandcared=?,
         feelwelcomeandcaredcomments=?,
         whycomeoncamp=?,
-        whynotcomeonmorecamps=?
+        whycomeoncampother=?,
+        whynotcomeonmorecamps=?,
+        whynotcomeonmorecampsother=?
     WHERE tokenid='${tokencookie}';`;
   let inserts = [
     `${req.body.firstcrutech}`,
@@ -237,7 +239,9 @@ app.post('/camp-experience', urlencodedParser, function (req, res) {
     `${req.body.feelwelcomeandcared}`,
     `${req.body.feelwelcomeandcaredcomments}`,
     `${req.body.whycomeoncamp}`,
-    `${req.body.whynotcomeonmorecamps}`
+    `${req.body.whycomeoncampother}`,
+    `${req.body.whynotcomeonmorecamps}`,
+    `${req.body.whynotcomeonmorecampsother}`
   ];
   sql = mysql.format(sql, inserts);
 
@@ -259,6 +263,7 @@ app.get('/faith-and-commitment', function (req, res) {
 });
 
 app.post('/faith-and-commitment', urlencodedParser, function (req, res) {
+  console.log(req.body);
   var tokencookie = req.cookies.token;
   let sql = `UPDATE ${config.databasetable}
     SET attendschoolgroup=?,

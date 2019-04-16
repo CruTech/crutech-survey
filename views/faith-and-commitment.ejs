@@ -17,8 +17,11 @@
       <% include partials/form-sections/describecommitment.ejs %>
     </select><br>
 
-    <p>Please give me more info about:</p>
-    <% include partials/form-sections/moreinformation.ejs %>
+    <p class="question">Please give me more info about:</p>
+    <img src="assets/img/hintquestion.png" alt="" height="25px" draggable="false" mousetip-msg="If you want to select more than one use CTRL and click."><br>
+    <select name="moreinformation" multiple size="4" required>
+      <% include partials/form-sections/moreinformation.ejs %>
+    </select><br>
 
     <p class="question">Has camp helped you grow in your faith?</p>
     <select name="growninfaith" onchange="showDivyesno('growninfaithhowcomments', this)" required>

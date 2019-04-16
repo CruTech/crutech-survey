@@ -1,7 +1,7 @@
 {
   "databasehost": "localhost",
-  "databaseuser": "root",
-  "databasepassword": "password",
+  "databaseuser": "crutech",
+  "databasepassword": "PasswordCruTech321",
   "databasedatabase": "crutechsurvey",
   "databasetable": "surveydata",
   "applicationlistenport": "8080",

@@ -59,3 +59,8 @@ textarea {
 #growninfaithhowcomments, #helpunderstandfaithcomments, #whycomeoncampother, #whynotcomeonmorecampsother {
   display: none;
 }
+
+.sitesection {
+  float: right;
+  padding: 20px;
+}

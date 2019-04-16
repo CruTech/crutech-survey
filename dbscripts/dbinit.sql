@@ -1,6 +1,6 @@
 create database crutechsurvey;
 use crutechsurvey;
-CREATE USER 'crutech'@'%' IDENTIFIED BY 'password';
+CREATE USER 'crutech'@'%' IDENTIFIED WITH mysql_native_password BY 'PasswordCruTech321';
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 FLUSH PRIVILEGES;
 GRANT SELECT ON crutechsurvey.* TO crutech@'%';
@@ -67,7 +67,10 @@ CREATE TABLE surveydata (
   attendschoolgroup TEXT,
   attendchurchgroup TEXT,
   bestdescribesyou TEXT,
-  moreinformationabout TEXT,
+  readingthebible TEXT,
+  growingasachristian TEXT,
+  jesusandchristianity TEXT,
+  christianleadershipopportunities TEXT,
   growninfaith VARCHAR(5),
   growninfaithhow TEXT,
   helpunderstandfaith VARCHAR(5),

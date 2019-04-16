@@ -245,7 +245,6 @@ app.post('/camp-aspect', urlencodedParser, function (req, res) {
 // Camp Experience
 //
 app.get('/camp-experience', function (req, res) {
-  cookieChecker();
   res.render('camp-experience');
 });
 
@@ -309,6 +308,10 @@ app.post('/faith-and-commitment', urlencodedParser, function (req, res) {
     SET attendschoolgroup=?,
         attendchurchgroup=?,
         bestdescribesyou=?,
+        readingthebible=?,
+        growingasachristian=?,
+        jesusandchristianity=?,
+        christianleadershipopportunities=?,
         growninfaith=?,
         growninfaithhow=?,
         helpunderstandfaith=?,
@@ -319,6 +322,10 @@ app.post('/faith-and-commitment', urlencodedParser, function (req, res) {
     `${req.body.attendschoolgroup}`,
     `${req.body.attendchurchgroup}`,
     `${req.body.bestdescribesyou}`,
+    `${req.body.readingthebible}`,
+    `${req.body.growingasachristian}`,
+    `${req.body.jesusandchristianity}`,
+    `${req.body.christianleadershipopportunities}`,
     `${req.body.growninfaith}`,
     `${req.body.growninfaithhow}`,
     `${req.body.helpunderstandfaith}`,

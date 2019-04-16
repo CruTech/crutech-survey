@@ -1,4 +1,18 @@
-<p><input type="checkbox" name="Reading the Bible" value="">Reading the Bible</p>
-<p><input type="checkbox" name="Growing as a Christian" value="">Growing as a Christian</p>
-<p><input type="checkbox" name="Jesus and Christianity" value="">Jesus and Christianity</p>
-<p><input type="checkbox" name="Christian leadership opportunities" value="">Christian leadership opportunities</p>
+<div class="multiselect">
+    <div class="selectBox" onclick="showCheckboxes()">
+      <select>
+        <option>Select an option</option>
+      </select>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxes">
+      <label for="optone">
+        <input type="checkbox" name="Reading the Bible" id="optone" />Reading the Bible</label>
+      <label for="opttwo">
+        <input type="checkbox" name="Growing as a Christian" id="opttwo" />Growing as a Christian</label>
+      <label for="optthree">
+        <input type="checkbox" name="Jesus and Christianity" id="optthree" />Jesus and Christianity</label>
+      <label for="optfour">
+        <input type="checkbox" name="Christian leadership opportunities" id="optfour" />Christian leadership opportunities</label>
+    </div>
+  </div>

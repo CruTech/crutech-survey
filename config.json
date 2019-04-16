@@ -4,5 +4,9 @@
   "databasepassword": "password",
   "databasedatabase": "crutechsurvey",
   "databasetable": "surveydata",
-  "applicationlistenport": "8080"
+  "applicationlistenport": "8080",
+
+  "sessiontoken": "?pNDvhFd4%<[>Vz_",
+  "adminusername": "administration",
+  "adminpassword": "passwords"
 }

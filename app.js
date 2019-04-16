@@ -8,7 +8,7 @@ const ejs = require('ejs');
 const mysql = require('mysql');
 const randtoken = require('rand-token');
 const cookieParser = require('cookie-parser');
-require('./public/assets/js/functions.js');
+const sessions = require('express-session');
 
 //
 // Constants
@@ -24,6 +24,15 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(express.static('public'));
 app.use(cookieParser());
+
+//
+// Session
+//
+app.use(sessions({
+  secret: config.sessiontoken,
+  resave: false,
+  saveUninitialized: true
+}));
 
 //
 // Database Connection
@@ -67,6 +76,37 @@ app.post('/', urlencodedParser, function (req, res) {
         console.log('Success');
       }
     });
+});
+
+//
+// Dashboard Login
+//
+app.get('/login', function (req, res) {
+  session = req.session;
+  if (session.uniqueID) {
+    res.redirect('/dashboard');
+  } else {
+    res.render('login');
+  };
+});
+
+app.post('/login', urlencodedParser, function (req, res) {
+  session = req.session;
+  if (req.body.username == config.adminusername && req.body.password == config.adminpassword) {
+    session.uniqueID = req.body.username;
+    res.redirect('/dashboard');
+    console.log(chalk.yellow('[CONSOLE] ') + chalk.magenta('[ADMIN] ') + 'A user has successfully logged in as Administrator.');
+  } else {
+    res.redirect('/');
+    console.log(chalk.yellow('[CONSOLE] ') + chalk.magenta('[ADMIN] ') + chalk.red('[ERROR] ') + 'A user has attemped to log into the Administration panel, but failed.');
+  };
+});
+
+//
+// Dashboard
+//
+app.get('/dashboard', function (req, res) {
+  res.render('dashboard');
 });
 
 //

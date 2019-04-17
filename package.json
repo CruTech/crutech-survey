@@ -19,6 +19,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "chalk": "^2.4.2",
+    "chart.js": "^2.8.0",
     "cookie-parser": "^1.4.4",
     "cookie-session": "^1.3.3",
     "ejs": "^2.6.1",
@@ -27,6 +28,7 @@
     "js-cookie": "^2.2.0",
     "lowdb": "^1.0.0",
     "mysql": "^2.16.0",
-    "rand-token": "^0.4.0"
+    "rand-token": "^0.4.0",
+    "tableexport": "^5.2.0"
   }
 }

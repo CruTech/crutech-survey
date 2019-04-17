@@ -1,4 +1,14 @@
 <% include partials/header.ejs %>
-  <h1>CruTech Dashboard</h1>
 
+<div class="dashboardcontainer">
+  <h1>Survey Dashboard</h1>
+
+  <div class='button'>
+    <a href="#" id ="export" role='button'>Click On This Here Link To Export The Table Data into a CSV File</a>
+  </div>
+
+
+      <h3>Survey Dataset Table</h3>
+        <% include partials/surveydatasettable.ejs %>
+</div>
 <% include partials/footer.ejs %>

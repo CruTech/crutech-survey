@@ -106,7 +106,15 @@ app.post('/login', urlencodedParser, function (req, res) {
 // Dashboard
 //
 app.get('/dashboard', function (req, res) {
-  res.render('dashboard');
+  let sql = `SELECT * FROM ${config.databasetable}`;
+  connection.query (sql, function (err, result) {
+    if (err) {
+      throw err;
+    } else {
+      obj = {objdata: result};
+      res.render('dashboard', obj);
+    }
+  });
 });
 
 //

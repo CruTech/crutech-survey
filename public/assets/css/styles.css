@@ -1,3 +1,6 @@
+/*
+    Main Supports
+ */
 html {
   font-family: Tahoma;
   background-color: #18acb6;
@@ -16,7 +19,20 @@ html {
   border-radius: 15px;
   user-select: none;
 }
+/*
+    Landing
+ */
+#particle-div {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
 
+/*
+    Survey Form
+ */
 .surveyformclass {
   background-color: white;
   padding: 15px;
@@ -48,14 +64,6 @@ textarea {
   max-width: 800px;
 }
 
-#particle-div {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  left: 0;
-}
-
 #growninfaithhowcomments, #helpunderstandfaithcomments, #whycomeoncampother, #whynotcomeonmorecampsother {
   display: none;
 }
@@ -63,4 +71,24 @@ textarea {
 .sitesection {
   float: right;
   padding: 20px;
+}
+
+/*
+    Dashboard
+ */
+.dashboardcontainer {
+  background-color: white;
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 1000px;
+  border-radius: 5px;
+}
+
+#datasettable {
+  max-width: 200px;
+}
+
+#datasettable td {
+  min-width: 150px;
+  font-size: 10pt;
 }

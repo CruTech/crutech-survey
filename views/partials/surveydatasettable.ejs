@@ -1,0 +1,140 @@
+<div class="surveydatasettable">
+  <table id="datasettable" border="1">
+  <tr>
+    <th>tokenid</th>
+    <th>name</th>
+    <th>favcolour</th>
+    <th>school</th>
+    <th>schoolgrade</th>
+    <th>discussiongroup</th>
+    <th>emailaddress</th>
+    <th>reunionpermission</th>
+    <th>crupromotionpermission</th>
+    <th>campoverallrating</th>
+    <th>campfavouritething</th>
+    <th>campbebetter</th>
+    <th>leadersrating</th>
+    <th>leadersratingcomments</th>
+    <th>electivename</th>
+    <th>electivesrating</th>
+    <th>electiveratingcomments</th>
+    <th>oneshotname</th>
+    <th>oneshotrating</th>
+    <th>oneshotcomments</th>
+    <th>themenightrating</th>
+    <th>themenightcomments</th>
+    <th>shownightrating</th>
+    <th>shownightcomments</th>
+    <th>gamestratrating</th>
+    <th>gamestratcomments</th>
+    <th>outdoorgamesrating</th>
+    <th>outdoorgamescomments</th>
+    <th>discussiongrouprating</th>
+    <th>discussiongroupcomments</th>
+    <th>downloadoverallrating</th>
+    <th>downloadoverallcomments</th>
+    <th>downloadspeakerrating</th>
+    <th>downloadspeakercomments</th>
+    <th>downloadsingingrating</th>
+    <th>downloadsingingcomments</th>
+    <th>cabinsrating</th>
+    <th>cabinscomments</th>
+    <th>foodrating</th>
+    <th>foodcomments</th>
+    <th>freetimerating</th>
+    <th>freetimecomments</th>
+    <th>firstcrutech</th>
+    <th>anothercrutech</th>
+    <th>sumcrutechinasentence</th>
+    <th>newcampideas</th>
+    <th>firstcrucamp</th>
+    <th>anothercrucamp</th>
+    <th>recommendcrucamp</th>
+    <th>newfriendsoncamp</th>
+    <th>feelwelcomeandcared</th>
+    <th>feelwelcomeandcaredcomments</th>
+    <th>whycomeoncamp</th>
+    <th>whycomeoncampother</th>
+    <th>whynotcomeonmorecamps</th>
+    <th>whynotcomeonmorecampsother</th>
+    <th>attendschoolgroup</th>
+    <th>attendchurchgroup</th>
+    <th>bestdescribesyou</th>
+    <th>moreinformation</th>
+    <th>growninfaith</th>
+    <th>growninfaithhow</th>
+    <th>helpunderstandfaith</th>
+    <th>helpunderstandfaithhow</th>
+    <th>camphelpdecision</th>
+  </tr>
+  <tr>
+    <% objdata.forEach(function (data) { %>
+      <td><%= data.tokenid %></td>
+      <td><%= data.name %></td>
+      <td><%= data.favcolour %></td>
+      <td><%= data.school %></td>
+      <td><%= data.schoolgrade %></td>
+      <td><%= data.discussiongroup %></td>
+      <td><%= data.emailaddress %></td>
+      <td><%= data.reunionpermission %></td>
+      <td><%= data.crupromotionpermission %></td>
+      <td><%= data.campoverallrating %></td>
+      <td><%= data.campfavouritething %></td>
+      <td><%= data.campbebetter %></td>
+      <td><%= data.leadersrating %></td>
+      <td><%= data.leadersratingcomments %></td>
+      <td><%= data.electivename %></td>
+      <td><%= data.electivesrating %></td>
+      <td><%= data.electiveratingcomments %></td>
+      <td><%= data.oneshotname %></td>
+      <td><%= data.oneshotrating %></td>
+      <td><%= data.oneshotcomments %></td>
+      <td><%= data.themenightrating %></td>
+      <td><%= data.themenightcomments %></td>
+      <td><%= data.shownightrating %></td>
+      <td><%= data.shownightcomments %></td>
+      <td><%= data.gamestratrating %></td>
+      <td><%= data.gamestratcomments %></td>
+      <td><%= data.outdoorgamesrating %></td>
+      <td><%= data.outdoorgamescomments %></td>
+      <td><%= data.discussiongrouprating %></td>
+      <td><%= data.discussiongroupcomments %></td>
+      <td><%= data.downloadoverallrating %></td>
+      <td><%= data.downloadoverallcomments %></td>
+      <td><%= data.downloadspeakerrating %></td>
+      <td><%= data.downloadspeakercomments %></td>
+      <td><%= data.downloadsingingrating %></td>
+      <td><%= data.downloadsingingcomments %></td>
+      <td><%= data.cabinsrating %></td>
+      <td><%= data.cabinscomments %></td>
+      <td><%= data.foodrating %></td>
+      <td><%= data.foodcomments %></td>
+      <td><%= data.freetimerating %></td>
+      <td><%= data.freetimecomments %></td>
+      <td><%= data.firstcrutech %></td>
+      <td><%= data.anothercrutech %></td>
+      <td><%= data.sumcrutechinasentence %></td>
+      <td><%= data.newcampideas %></td>
+      <td><%= data.firstcrucamp %></td>
+      <td><%= data.anothercrucamp %></td>
+      <td><%= data.recommendcrucamp %></td>
+      <td><%= data.newfriendsoncamp %></td>
+      <td><%= data.feelwelcomeandcared %></td>
+      <td><%= data.feelwelcomeandcaredcomments %></td>
+      <td><%= data.whycomeoncamp %></td>
+      <td><%= data.whycomeoncampother %></td>
+      <td><%= data.whynotcomeonmorecamps %></td>
+      <td><%= data.whynotcomeonmorecampsother %></td>
+      <td><%= data.attendschoolgroup %></td>
+      <td><%= data.attendchurchgroup %></td>
+      <td><%= data.bestdescribesyou %></td>
+      <td><%= data.moreinformation %></td>
+      <td><%= data.growninfaith %></td>
+      <td><%= data.growninfaithhow %></td>
+      <td><%= data.helpunderstandfaith %></td>
+      <td><%= data.helpunderstandfaithhow %></td>
+      <td><%= data.camphelpdecision %></td>
+    <% }) %>
+  </tr>
+</table>
+</div>

@@ -2,13 +2,7 @@
 
 <div class="dashboardcontainer">
   <h1>Survey Dashboard</h1>
-
-  <div class='button'>
-    <a href="#" id ="export" role='button'>Click On This Here Link To Export The Table Data into a CSV File</a>
-  </div>
-
-
-      <h3>Survey Dataset Table</h3>
-        <% include partials/surveydatasettable.ejs %>
+    <button class="btn-primary" onclick="exportTableToCSV('surveydataset.csv')">Export Table to CSV</button>
+    <% include partials/dashboard/allsurveydata.ejs %>
 </div>
 <% include partials/footer.ejs %>
